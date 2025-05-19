@@ -3,37 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/style.css">
+    <script src="src/script.js"></script>
     <title>Funkcjonalnosc pop upa ????</title>
 </head>
 <body>
-    <div class="container">
+    <button onclick="showLogin()">Zaloguj się :3!!!!</button>
+    
+    <div id="login-container" class="hidden">
+        <div class="login">
 
-        <div class="text">
-            Zaloguj się :3
+           <button onclick="hideLogin()" class="close-login">X</button>
+
+            <div class="text">
+                Zaloguj się :3
+            </div>
+            
+            <form action="link/referencja gdzie wyslac pobrane dane">
+                <div class="data">
+                    <label for="">Email</label>
+                    <input type="email" 
+                        required placeholder="Wpisz Email"
+                        minlength="0"
+                        oninvalid="this.setCustomValidity('Email is required')"
+                        oninput="this.setCustomValidity('')"
+                    >
+                </div>
+
+                <div class="data">
+                    <label for="">Hasło</label>
+                    <input type="password" 
+                        required placeholder="Wpisz Masło" 
+                        minlength="0"
+                        oninvalid="this.setCustomValidity('Masło is required')"
+                        oninput="this.setCustomValidity('')"
+                    >
+                </div>
+
+                <div class="forgotten-password">
+                    <a href="media/ehhh.jpeg">Zapomniano Pasów?</a>
+                </div>
+
+                <div class="submit-button">
+                    <button type="przeslij">Zaloguj</button>
+                </div>
+
+            </form>
         </div>
-        <form action="link/referencja gdzie wyslac pobrane dane">
-            <div class="dane">
-                <label for="">Email</label>
-                <input type="text" required placeholder="Wpisz Email"
-                oninvalid="this.setCustomValidity('Email is required')">
-            </div>
-
-            <div class="dane">
-                <label for="">Hasło</label>
-                <input type="text" required required placeholder="Wpisz Masło"
-                oninvalid="this.setCustomValidity('Masło is required')">
-            </div>
-
-            <div class="Zapomniane-pasy">
-                <a href="media/ehhh.jpeg">Zapomniano Pasów?</a>
-            </div>
-
-            <div class="guzik">
-                <button type="przeslij">Zaloguj</button>
-            </div>
-
-        </form>
     </div>
 </body>
 </html>

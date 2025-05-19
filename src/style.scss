@@ -1,34 +1,65 @@
-.container{
+$bgLogin: papayawhip;
+$btColor: aliceblue;
+
+html{
+    padding: 0;
+    margin: 0;
+}
+
+body{
     display: flex;
+}
+
+.hidden {
+    display: none;
+}
+
+.shown{
+    display: flex;
+}
+
+#login-container{
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login{
+    position: fixed;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: #fff;
+    background: $bgLogin;
     width: 410px;
     padding: 30px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
-.container .text{
+.login .text{
     font-size: 35px;
     font-weight: 600;
     text-align: center;
 }
 
-.container form{
+.login form{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+form .data label{
+    font-size: 18px;
+} 
 
-.container form .dane{
+.login form .data{
    height: 35px;
    width: 100%;
    margin: 20px 0;
 }
 
-form .dane input{
+form .data input{
     height:  100%;
     width: 100%;
     padding-left: 10px;
@@ -36,37 +67,39 @@ form .dane input{
     border: 1px solid silver;
 }
 
-form .dane input:focus{
-    border-color: pink;
+form .data input:focus{
+    border-color: $bgLogin;
     border-bottom-width:2px ;
 }
 
-form .Zapomniane-pasy{
+form .forgotten-password{
     margin-top: 20px;
     display: flex;
     justify-content:  center;
     align-self: start;
 }
 
-form .Zapomniane-pasy a{
+form .forgotten-password a{
+    margin-top: 20px;
     color: blueviolet;
     text-decoration: none;
 }
-form .Zapomniane-pasy a:hover{
+form .forgotten-password a:hover{
     text-decoration: underline;
 }
 
-form .guzik{
+form .submit-button{
   margin: 30 px 0;
   height:  45px;
   width: 100%;
 }
 
-form .guzik button{
+form .submit-button button{
+    margin-top: 15px;
     height: 100%;
     width: 100%;
-    background: aqua;
-    color: teal;
+    background: $btColor;
+    color: purple;
     font-size: 18px;
     font-weight: 500;
     border: none;
@@ -75,7 +108,23 @@ form .guzik button{
     transition: all 0.6s;
 }
 
-.guzik button:hover{
+.submit-button button:hover{
     background-color: teal;
     color: aliceblue;
+}
+
+.close-login{
+    all: unset;
+    font-size: 25px;
+    text-decoration: none;
+    color: purple;
+    margin-left: 95%;
+}
+
+.close-login:hover{
+    all: unset;
+    font-size: 25px;
+    text-decoration: none;
+    color: red;
+    margin-left: 95%;
 }
