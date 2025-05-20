@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Side by Side Elements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px; /* spacing between boxes */
+    }
+
+    .box {
+      flex: 1; /* equally divide space */
+      background-color: #e3e3e3;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .box h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="box">
+      <h2>Title 1</h2>
+      <p>Description for item 1.</p>
+    </div>
+    <div class="box">
+      <h2>Title 2</h2>
+      <p>Description for item 2.</p>
+    </div>
+    <div class="box">
+      <h2>Title 3</h2>
+      <p>Description for item 3.</p>
+    </div>
+  </div>
+
+</body>
+</html>
