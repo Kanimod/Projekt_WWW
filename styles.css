@@ -5,13 +5,14 @@
 body{
     margin: 0px;
     font-family: "Comic Sans MS", "Comic Sans";
+    background-color: aqua;
 }
 
 header{
     background-color: yellow;
     text-align: center;
     padding: 20px;
-    background-color: white;
+
 }
 
 header img{
@@ -71,17 +72,28 @@ li a{
     width: auto;
 }
 
+.main{
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: #39FF14;
+    text-align: center;
+    border: 10px solid black;
+}
+
 .gra{
     text-align: center;
     padding-top: 50px;
     padding-bottom: 30px;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .obrazek_gra img{
     border: 10px solid black;
     border-radius: 10px;
-    height: 300px;
-    width: auto;
+    width: 100%;
+    height: auto;
+
 }
 
 .gra button{
@@ -104,31 +116,23 @@ li a{
     font-size: 25px;
 }
 
-.glowny_kontener{
-    margin-left: 25%;
-    margin-right: 25%;
-}
-
-
-.opis{
-    margin-left: 25%;
-    margin-right: 25%;
-    text-align: center;
-}
-
 .tworcy_kontener{
-    display: flex;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: auto;
 }
 
-.pudelko{
-    flex: 1;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+.tworca{
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
-.pudelko h2{
-    margin-top: 0;
+.obraz_tw img{
+    width: 100%;
+    height: auto;
+
+}
+
+.formularz{
+    font-size: 25px;
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8" />
+        <title>O nas!</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo"><a href="index.html"><img src="logo.png" alt="logo"></a></div>
+            <h1>Witamy w Świecie Gier!!</h1>
+        </header>
+
+        <nav class="navbar">
+            <div class="nawigacja"> 
+                <ul>
+                    <li><a href="index.html">Gry</a></li>
+                    <li><a href="about.html">O nas</a></li>
+                    <li><a class="aktywne" href="opinia.html">Ocenka</a></li>
+                </ul>
+            
+                <div class="profil"><a href="#profil"><img src="profil.png" alt="prof"></a></div>
+            </div>
+        </nav>
+
+        <div class="main">
+            <h1>Podziel sie swoja opinia:</h1>
+            <form  class="formularz" action="https://httpbin.org/" method="post">
+                <label for="fname">First name:</label><br>
+                <input type="text" id="fname" name="fname"><br>
+                <label for="lname">Last name:</label><br>
+                <input type="text" id="lname" name="lname"><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+
+    </body>
+</html>
