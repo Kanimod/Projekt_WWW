@@ -1,11 +1,70 @@
 <!DOCTYPE html>
 
 <html lang="pl">
+
 <head>
-    <meta charset="utf-8" />
-    <title>pozdro</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <title>Gamling Granko</title>
+    <link rel="stylesheet" href="src/style/style.css">
+    <script src="src/script/script.js"></script>
 </head>
+
 <body>
-    <h1>POZDROOO</h1>
+    <div id="login-container" class="hidden">
+        <div class="login">
+
+            <button onclick="hideLogin()" class="close-login">X</button>
+
+            <div class="text">
+                Zaloguj się :3
+            </div>
+
+            <form action="link/referencja gdzie wyslac pobrane dane">
+                <div class="data">
+                    <label for="">Email</label>
+                    <input type="email" required placeholder="Wpisz Email" minlength="0"
+                        oninvalid="this.setCustomValidity('Email is required')" oninput="this.setCustomValidity('')">
+                </div>
+
+                <div class="data">
+                    <label for="">Hasło</label>
+                    <input type="password" required placeholder="Wpisz Masło" minlength="0"
+                        oninvalid="this.setCustomValidity('Masło is required')" oninput="this.setCustomValidity('')">
+                </div>
+
+                <div class="forgotten-password">
+                    <a href="media/ehhh.jpeg">Zapomniano Pasów?</a>
+                </div>
+
+                <div class="submit-button">
+                    <button type="przeslij">Zaloguj</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="head">
+            <a href="index.html"><img src="media/logo.png" alt="logo"></a>
+        </div>
+        <div class="nav">
+            <div class="left">
+                <a href="index.html" class="active">Front Page</a>
+                <a href="about.html">About Us</a>
+                <a href="opinion.html">Opinion</a>
+            </div>
+            <div class="right">
+                <button onclick="showLogin()" class="button-login">Zaloguj się :3!!!!</button>
+            </div>
+        </div>
+    </div>
+
 </body>
-</html> 
+
+<footer>
+
+</footer>
+
+</html>
