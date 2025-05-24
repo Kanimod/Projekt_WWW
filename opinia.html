@@ -26,10 +26,35 @@
         <div class="main">
             <h1>Podziel sie swoja opinia:</h1>
             <form  class="formularz" action="https://httpbin.org/" method="post">
-                <label for="fname">First name:</label><br>
-                <input type="text" id="fname" name="fname"><br>
-                <label for="lname">Last name:</label><br>
-                <input type="text" id="lname" name="lname"><br>
+                <label>Ogolna jakość serwisu:</label><br>
+                <div class="wybor_1-5">
+                    <label><input type="radio" name="option" value="1">1</label>
+                    <label><input type="radio" name="option" value="2">2</label>
+                    <label><input type="radio" name="option" value="3">3</label>
+                    <label><input type="radio" name="option" value="4">4</label>
+                    <label><input type="radio" name="option" value="5">5</label>
+                </div>
+
+                <label>Ilość gier:</label><br>
+                <div class="wybor_1-5">
+                    <label><input type="radio" name="option" value="1">1</label>
+                    <label><input type="radio" name="option" value="2">2</label>
+                    <label><input type="radio" name="option" value="3">3</label>
+                    <label><input type="radio" name="option" value="4">4</label>
+                    <label><input type="radio" name="option" value="5">5</label>
+                </div>
+
+                <label>Ulubiona gra:</label><br>
+                <select>
+                    <option>Gra_1</option>
+                    <option>Gra_2</option>
+                    <option>Gra_3</option>
+                    <option>Gra_4</option>
+                </select><br>
+
+                <label>Co sądszi:</label><br>
+                <textarea placeholder="Chetnie wezmiemy twoje zdanie pod uwage"></textarea><br>
+
                 <input type="submit" value="Submit">
             </form>
         </div>

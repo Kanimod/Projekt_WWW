@@ -27,42 +27,48 @@ header img{
     top: 0;
 }
 
-.profil img:hover{
-    padding: 5px;
-    border-radius: 25px;
-    background-color: yellow;
+.nawigacja{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
-
-.navbar ul a:hover{
+.n_lewa a:hover{
     padding: 15px;
     border-radius: 10px;
     background-color: navy;
     color: navajowhite;
 }
 
-.navbar ul a.aktywne{
+.n_lewa a.aktywne{
     padding: 15px;
     border-radius: 10px;
     background-color: blueviolet;
     color: chartreuse;
 }
 
-.nawigacja{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-li{
+.n_lewa li{
     display: inline-block;
 }
 
-li a{
+.n_lewa li a{
     color: white;
     font-size: 25px;
     margin: 10px;
     padding: 15px;
+}
+
+.n_prawa{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.profil img:hover{
+    padding: 5px;
+    border-radius: 25px;
+    background-color: yellow;
 }
 
 .profil img{
@@ -130,9 +136,23 @@ li a{
 .obraz_tw img{
     width: 100%;
     height: auto;
-
 }
 
 .formularz{
+    font-size:35px;
+    margin-bottom: 50px;
+}
+
+.wybor_1-5{
     font-size: 25px;
+    margin-bottom: 50px;
+}
+
+.formularz select{
+    margin-bottom: 50px;
+}
+
+.formularz textarea{
+    width: 30%;
+    height: 20%;
 }
