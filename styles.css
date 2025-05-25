@@ -3,9 +3,16 @@
 }
 
 body{
-    margin: 0px;
+     margin: 0px;
     font-family: "Comic Sans MS", "Comic Sans";
+}
+
+body.jasno{
     background-color: aqua;
+}
+
+body.ciemno{
+    background-color: purple;
 }
 
 header{
@@ -22,7 +29,6 @@ header img{
 
 .navbar{
     background-color: darkslategray;
-    padding: 10px;
     position: sticky;
     top: 0;
 }
@@ -48,6 +54,12 @@ header img{
     color: chartreuse;
 }
 
+.n_lewa{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .n_lewa li{
     display: inline-block;
 }
@@ -62,8 +74,15 @@ header img{
 .n_prawa{
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
 }
+
+.n_prawa li{
+    display: inline-block;
+    margin-left: 20px;
+}
+
 
 .profil img:hover{
     padding: 5px;
