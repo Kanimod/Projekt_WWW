@@ -4,7 +4,7 @@
 
 body{
      margin: 0px;
-    font-family: "Comic Sans MS", "Comic Sans";
+     font-family: "Comic Sans MS", "Comic Sans";
 }
 
 body.jasno{
@@ -175,3 +175,113 @@ header img{
     width: 30%;
     height: 20%;
 }
+
+.hidden {
+    display: none;
+  }
+  
+.shown {
+    display: flex;
+}
+  
+#login-container {
+    top: 0;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+}
+  
+.login {
+    border-radius: 10px;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: papayawhip;
+    width: 410px;
+    padding: 30px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+  
+.login .text {
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+}
+  
+.login form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+  
+form .data label {
+    font-size: 18px;
+}
+  
+.login form .data {
+    height: 35px;
+    width: 100%;
+    margin: 20px 0;
+}
+  
+form .data input {
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 17px;
+    border: 1px solid silver;
+}
+  
+form .data input:focus {
+    border-color: papayawhip;
+    border-bottom-width: 2px;
+}
+  
+form .forgotten-password {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-self: start;
+}
+  
+form .forgotten-password a {
+    margin-top: 20px;
+    color: blueviolet;
+    text-decoration: none;
+}
+  
+form .forgotten-password a:hover {
+    text-decoration: underline;
+}
+  
+form .submit-button {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    height: 45px;
+    width: 100%;
+}
+  
+form .submit-button button {
+    margin-top: 15px;
+    height: 100%;
+    width: 100%;
+    background: aliceblue;
+    color: purple;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.6s;
+}
+  
+.submit-button button:hover {
+    background-color: teal;
+    color: aliceblue;
+}
+  
