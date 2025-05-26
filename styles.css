@@ -16,13 +16,15 @@ body.ciemno{
 }
 
 header{
-    background-color: yellow;
+    background-color: blueviolet;
     text-align: center;
     padding: 20px;
 
 }
 
 header img{
+    border: 10px solid black;
+    border-radius: 10px;
     width: 500px;
     height: auto;
 }
@@ -62,6 +64,7 @@ header img{
 
 .n_lewa li{
     display: inline-block;
+    padding: 15px 0px 15px 0px;
 }
 
 .n_lewa li a{
@@ -83,18 +86,9 @@ header img{
     margin-left: 20px;
 }
 
-
-.profil img:hover{
-    padding: 5px;
-    border-radius: 25px;
-    background-color: yellow;
-}
-
-.profil img{
-    margin-right: 10px;
-    padding: 5px;
-    height: 45px;
-    width: auto;
+#tryb{
+    width: 50px;
+    height: auto;
 }
 
 .main{
@@ -106,7 +100,10 @@ header img{
 }
 
 .gra{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding-top: 50px;
     padding-bottom: 30px;
     margin-left: 25%;
@@ -118,16 +115,15 @@ header img{
     border-radius: 10px;
     width: 100%;
     height: auto;
-
+    margin-bottom: 5%;
 }
 
 .gra button{
     background-color: red;
-    margin-top: 15px;
-    padding: 20px;
     border: 10px solid black;
     border-radius: 10px;
-    width: 150px;
+    padding: 5%;
+    width: 40%;
 }
 
 .gra button:hover{
@@ -138,7 +134,7 @@ header img{
     color: white;
     font-family: "Comic Sans MS", "Comic Sans";
     font-weight: bold;
-    font-size: 25px;
+    font-size: calc(16px + 0.5vw);
 }
 
 .tworcy_kontener{
@@ -285,3 +281,6 @@ form .submit-button button {
     color: aliceblue;
 }
   
+.button-login{
+    margin-right: 30px;
+}

@@ -20,11 +20,45 @@
                 </ul>
                 
                 <ul class="n_prawa">
-                    <li><button id="tryb">tryb</button></li>
-                    <li><div class="profil"><a href="#profil"><img src="profil.png" alt="prof"></a></div></li>
+                    <li><img id="tryb" src="tryb.png" ></li>
+                    <li><button onclick="showLogin()" class="button-login">Zaloguj się :3!!!!</button></li>
                 </ul>
             </div>
         </nav>
+
+        <div id="login-container" class="hidden">
+            <div class="login">
+    
+                <button onclick="hideLogin()" class="close-login">X</button>
+    
+                <div class="text">
+                    Zaloguj sie :3
+                </div>
+    
+                <form action="link/referencja gdzie wyslac pobrane dane">
+                    <div class="data">
+                        <label for="">Email</label>
+                        <input type="email" required placeholder="Wpisz Email" minlength="0"
+                            oninvalid="this.setCustomValidity('Email is required')" oninput="this.setCustomValidity('')">
+                    </div>
+    
+                    <div class="data">
+                        <label for="">Haslo</label>
+                        <input type="password" required placeholder="Wpisz Maslo" minlength="0"
+                            oninvalid="this.setCustomValidity('Maslo is required')" oninput="this.setCustomValidity('')">
+                    </div>
+    
+                    <div class="forgotten-password">
+                        <a href="media/ehhh.jpeg">Zapomniano Pasow?</a>
+                    </div>
+    
+                    <div class="submit-button">
+                        <button type="przeslij">Zaloguj</button>
+                    </div>
+    
+                </form>
+            </div>
+        </div>
 
         <div class="main">
             <h1>Podziel sie swoja opinia:</h1>
