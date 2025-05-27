@@ -2,25 +2,32 @@
     text-decoration: none;
 }
 
-body{
+#cialo{
      margin: 0px;
      font-family: "Comic Sans MS", "Comic Sans";
 }
 
-body.jasno{
+#cialo.ciemno{
+    background-color: blueviolet;
+}
+
+#cialo.jasno{
     background-color: aqua;
 }
 
-body.ciemno{
-    background-color: purple;
-}
-
-header{
-    background-color: blueviolet;
+#glowa{
     text-align: center;
     padding: 20px;
-
 }
+
+#glowa.ciemno{
+    background: orange;
+}
+
+#glowa.jasno{
+    background: green;
+}
+
 
 header img{
     border: 10px solid black;
