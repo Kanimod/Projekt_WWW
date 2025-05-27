@@ -2,7 +2,7 @@
 <html lang="pl">
     <head>
         <meta charset="utf-8" />
-        <title>O nas!</title>
+        <title>Ocenka</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body id="cialo">
@@ -62,37 +62,37 @@
 
         <div class="main">
             <h1>Podziel sie swoja opinia:</h1>
-            <form class="formularz" action="https://httpbin.org/post" method="post">
-                <label>Ogolna jakość serwisu:</label><br>
+            <form class="formularz" id="formularz_f">
+                <label>Ogólna jakość serwisu:</label><br>
                 <div class="wybor_1-5">
-                    <label><input type="radio" name="option" value="1">1</label>
-                    <label><input type="radio" name="option" value="2">2</label>
-                    <label><input type="radio" name="option" value="3">3</label>
-                    <label><input type="radio" name="option" value="4">4</label>
-                    <label><input type="radio" name="option" value="5">5</label>
+                    <label><input type="radio" name="jakosc" value="1">1</label>
+                    <label><input type="radio" name="jakosc" value="2">2</label>
+                    <label><input type="radio" name="jakosc" value="3">3</label>
+                    <label><input type="radio" name="jakosc" value="4">4</label>
+                    <label><input type="radio" name="jakosc" value="5">5</label>
                 </div>
 
                 <label>Ilość gier:</label><br>
                 <div class="wybor_1-5">
-                    <label><input type="radio" name="option" value="1">1</label>
-                    <label><input type="radio" name="option" value="2">2</label>
-                    <label><input type="radio" name="option" value="3">3</label>
-                    <label><input type="radio" name="option" value="4">4</label>
-                    <label><input type="radio" name="option" value="5">5</label>
+                    <label><input type="radio" name="ile_gier" value="1">1</label>
+                    <label><input type="radio" name="ile_gier" value="2">2</label>
+                    <label><input type="radio" name="ile_gier" value="3">3</label>
+                    <label><input type="radio" name="ile_gier" value="4">4</label>
+                    <label><input type="radio" name="ile_gier" value="5">5</label>
                 </div>
 
                 <label>Ulubiona gra:</label><br>
-                <select>
-                    <option>Gra_1</option>
-                    <option>Gra_2</option>
-                    <option>Gra_3</option>
-                    <option>Gra_4</option>
+                <select name="ulub_gra">
+                    <option value="Gra_1">Gra_1</option>
+                    <option value="Gra_2">Gra_2</option>
+                    <option value="Gra_3">Gra_3</option>
+                    <option value="Gra_4">Gra_4</option>
                 </select><br>
 
-                <label>Co sądszi:</label><br>
-                <textarea placeholder="Chetnie wezmiemy twoje zdanie pod uwage"></textarea><br>
+                <label>Co sądzisz:</label><br>
+                <textarea name="opinia" placeholder="Chętnie weźmiemy twoje zdanie pod uwagę"></textarea><br>
 
-                <input type="submit" value="Submit">
+                <button type="submit">Wyslij</button>
             </form>
         </div>
         

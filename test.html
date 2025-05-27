@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <style>
-    .radio-group {
-      display: flex;
-      gap: 10px; /* space between options */
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Form Submission</title>
 </head>
 <body>
+  <form id="myForm">
+    <input type="text" name="name" placeholder="Name" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <button type="submit">Submit</button>
+  </form>
 
-<form>
-  <div class="radio-group">
-    <label><input type="radio" name="option" value="1"> Option 1</label>
-    <label><input type="radio" name="option" value="2"> Option 2</label>
-    <label><input type="radio" name="option" value="3"> Option 3</label>
-    <label><input type="radio" name="option" value="4"> Option 4</label>
-    <label><input type="radio" name="option" value="5"> Option 5</label>
-  </div>
-</form>
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function (e) {
+      e.preventDefault();
 
+      const formData = new FormData(this);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email')
+      };
+
+      fetch('http://localhost:3000/submissions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(result => {
+          console.log('Success:', result);
+          alert('Form submitted!');
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+  </script>
 </body>
 </html>
