@@ -1,0 +1,336 @@
+*{
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 1px solid red; 
+}
+
+#cialo{
+     margin: 0px;
+     font-family: "Comic Sans MS", "Comic Sans";
+}
+
+#cialo.ciemno{
+    background-color: blueviolet;
+}
+
+#cialo.jasno{
+    background-color: aqua;
+}
+
+#glowa{
+    text-align: center;
+    padding: 20px;
+}
+
+#glowa.ciemno{
+    background: orange;
+}
+
+#glowa.jasno{
+    background: green;
+}
+
+
+header img{
+    border: 10px solid black;
+    border-radius: 10px;
+    width: 500px;
+    height: auto;
+}
+
+.navbar{
+    background-color: darkslategray;
+    position: sticky;
+    top: 0;
+}
+
+.nawigacja{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.n_lewa a:hover{
+    padding: 15px;
+    border-radius: 10px;
+    background-color: navy;
+    color: navajowhite;
+}
+
+.n_lewa a.aktywne{
+    padding: 15px;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: chartreuse;
+}
+
+.n_lewa{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.n_lewa li{
+    display: inline-block;
+    padding: 15px 0px 15px 0px;
+}
+
+.n_lewa li a{
+    color: white;
+    font-size: 25px;
+    margin: 10px;
+    padding: 15px;
+}
+
+.n_prawa{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.n_prawa li{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+#tryb{
+    width: 50px;
+    height: auto;
+}
+
+.main{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+#gryy, #opinia-main, #about-main{
+    width: 50%;
+    background-color: #39FF14;
+    text-align: center;
+    border: 10px solid black;
+}
+
+
+#reklama-l,#reklama-r{
+    width: 25%;
+}
+
+.huj{
+    display: none;
+    width: 30px;
+    height: 655px;
+    margin: 10px 10px 10px 10px;
+}
+
+.huj img{
+    object-fit: fill;
+}
+
+.gra{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+
+.obrazek_gra img{
+    border: 10px solid black;
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 5%;
+    transition: filter 0.3s ease ;
+}
+
+
+.obrazek_gra img:hover{
+    filter: blur(3px);
+
+}
+
+.tworcy_kontener{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: auto;
+}
+
+.tworca{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.obraz_tw img{
+    width: 100%;
+    height: auto;
+}
+
+.formularz{
+    font-size:35px;
+    margin-bottom: 50px;
+}
+
+.wybor_1-5{
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+.formularz select{
+    margin-bottom: 50px;
+}
+
+.formularz textarea{
+    width: 30%;
+    height: 20%;
+}
+
+.hidden {
+    display: none;
+  }
+  
+.shown {
+    display: flex;
+}
+  
+#login-container, #nieznaleziono {
+    top: 0;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+}
+  
+.login,.popup-nieznaleziono {
+    border-radius: 10px;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: papayawhip;
+    width: 410px;
+    padding: 30px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+  
+.login .text {
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+}
+  
+.login form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+  
+form .data label {
+    font-size: 18px;
+}
+  
+.login form .data {
+    height: 35px;
+    width: 100%;
+    margin: 20px 0;
+}
+  
+form .data input {
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 17px;
+    border: 1px solid silver;
+}
+  
+form .data input:focus {
+    border-color: papayawhip;
+    border-bottom-width: 2px;
+}
+  
+form .forgotten-password {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-self: start;
+}
+  
+form .forgotten-password a {
+    margin-top: 20px;
+    color: blueviolet;
+    text-decoration: none;
+}
+  
+form .forgotten-password a:hover {
+    text-decoration: underline;
+}
+  
+form .submit-button {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    height: 45px;
+    width: 100%;
+}
+  
+form .submit-button button {
+    margin-top: 15px;
+    height: 100%;
+    width: 100%;
+    background: aliceblue;
+    color: purple;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.6s;
+}
+  
+.submit-button button:hover {
+    background-color: teal;
+    color: aliceblue;
+}
+  
+.button-login{
+    margin-right: 30px;
+}
+
+.popup-nieznaleziono{
+    width: 400px;
+    height: 120px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.poup-lewo, .poup-prawo{
+    width: 50%;
+    height: 50%;
+}
+
+.guzikkot{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: row;
+}
+
+.popup-nieznaleziono img{
+    height: 70%;
+    width: 70%;
+}
+
+#komunikat{
+    text-decoration: underline;
+    font-weight: bold;
+    color: brown;
+}

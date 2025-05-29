@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ocenka</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body id="cialo">
+    <header id="glowa">
+        <div class="logo"><a href="index.html"><img src="/media/logo.png" alt="logo"></a></div>
+        <h1>Witamy w Świecie Gier!!</h1>
+    </header>
+
+    <nav class="navbar">
+        <div class="nawigacja">
+            <ul class="n_lewa">
+                <li><a href="index.html">Gry</a></li>
+                <li><a href="about.html">O nas</a></li>
+                <li><a class="aktywne" href="opinia.html">Ocenka</a></li>
+            </ul>
+
+            <ul class="n_prawa">
+                <li><img id="tryb" src="/media/tryb.png"></li>
+                <li><button onclick="showLogin()" class="button-login">Zaloguj się :3!!!!</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="login-container" class="hidden">
+        <div class="login">
+
+            <button onclick="hideLogin()" class="close-login">X</button>
+
+            <div class="text">
+                Zaloguj sie :3
+            </div>
+
+            <form action="link/referencja gdzie wyslac pobrane dane">
+                <div class="data">
+                    <label for="">Email</label>
+                    <input type="email" required placeholder="Wpisz Email" minlength="0"
+                        oninvalid="this.setCustomValidity('Email is required')" oninput="this.setCustomValidity('')">
+                </div>
+
+                <div class="data">
+                    <label for="">Haslo</label>
+                    <input type="password" required placeholder="Wpisz Maslo" minlength="0"
+                        oninvalid="this.setCustomValidity('Maslo is required')" oninput="this.setCustomValidity('')">
+                </div>
+
+                <div class="forgotten-password">
+                    <a href="media/zad_cat">Zapomniano Pasow?</a>
+                </div>
+
+                <div class="submit-button">
+                    <button type="przeslij">Zaloguj</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="main">
+        <div id="opinia-main">
+            <h1>Podziel sie swoja opinia:</h1>
+            <form class="formularz" id="formularz_f">
+                <label>Ogólna jakość serwisu:</label><br>
+                <div class="wybor_1-5">
+                    <label><input type="radio" name="jakosc" value="1">1</label>
+                    <label><input type="radio" name="jakosc" value="2">2</label>
+                    <label><input type="radio" name="jakosc" value="3">3</label>
+                    <label><input type="radio" name="jakosc" value="4">4</label>
+                    <label><input type="radio" name="jakosc" value="5">5</label>
+                </div>
+
+                <label>Ilość gier:</label><br>
+                <div class="wybor_1-5">
+                    <label><input type="radio" name="ile_gier" value="1">1</label>
+                    <label><input type="radio" name="ile_gier" value="2">2</label>
+                    <label><input type="radio" name="ile_gier" value="3">3</label>
+                    <label><input type="radio" name="ile_gier" value="4">4</label>
+                    <label><input type="radio" name="ile_gier" value="5">5</label>
+                </div>
+
+                <label>Ulubiona gra:</label><br>
+                <select name="ulub_gra">
+                    <option value="Gra_1">Gra_1</option>
+                    <option value="Gra_2">Gra_2</option>
+                    <option value="Gra_3">Gra_3</option>
+                    <option value="Gra_4">Gra_4</option>
+                </select><br>
+
+                <label>Co sądzisz:</label><br>
+                <textarea name="opinia" placeholder="Chętnie weźmiemy twoje zdanie pod uwagę"></textarea><br>
+
+                <button type="submit">Wyslij</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../skrypt.js"></script>
+
+</body>
+
+</html>

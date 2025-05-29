@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8" />
+    <title>O nas!</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body id="cialo">
+    <header id="glowa">
+        <div class="logo"><a href="index.html"><img src="/media/logo.png" alt="logo"></a></div>
+        <h1>Witamy w Świecie Gier!!</h1>
+    </header>
+
+    <nav class="navbar">
+        <div class="nawigacja">
+            <ul class="n_lewa">
+                <li><a href="index.html">Gry</a></li>
+                <li><a class="aktywne" href="about.html">O nas</a></li>
+                <li><a href="opinia.html">Ocenka</a></li>
+            </ul>
+
+            <ul class="n_prawa">
+                <li><img id="tryb" src="/media/tryb.png"></li>
+                <li><button onclick="showLogin()" class="button-login">Zaloguj się :3!!!!</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="login-container" class="hidden">
+        <div class="login">
+
+            <button onclick="hideLogin()" class="close-login">X</button>
+
+            <div class="text">
+                Zaloguj sie :3
+            </div>
+
+            <form action="link/referencja gdzie wyslac pobrane dane">
+                <div class="data">
+                    <label for="">Email</label>
+                    <input type="email" required placeholder="Wpisz Email" minlength="0"
+                        oninvalid="this.setCustomValidity('Email is required')" oninput="this.setCustomValidity('')">
+                </div>
+
+                <div class="data">
+                    <label for="">Haslo</label>
+                    <input type="password" required placeholder="Wpisz Maslo" minlength="0"
+                        oninvalid="this.setCustomValidity('Maslo is required')" oninput="this.setCustomValidity('')">
+                </div>
+
+                <div class="forgotten-password">
+                    <a href="media/ehhh.jpeg">Zapomniano Pasow?</a>
+                </div>
+
+                <div class="submit-button">
+                    <button type="przeslij">Zaloguj</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="main">
+        <div id="about-main">
+            <h1>Hej!</h1>
+            <p>placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder
+                placeholder placeholder
+                placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder
+                placeholder placeholder
+                placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder
+                placeholder placeholder
+                placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder
+                placeholder placeholder
+                placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder
+                placeholder placeholder
+            </p>
+            <h1>Kim jetsemy</h1>
+            <div class="tworcy_kontener">
+                <div class="tworca">
+                    <div class="obraz_tw"><img src="/media/doge caat.jpg" alt="placeholder1"></div>
+                    <h2>ona</h2>
+                    <p>ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe
+                        ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe
+                        ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe
+                    </p>
+                </div>
+
+                <div class="tworca">
+                    <div class="obraz_tw"><img src="/media/obama chaan.jpg" alt="placeholder2"></div>
+                    <h2>on</h2>
+                    <p>ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe
+                        ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe
+                        ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe
+                    </p>
+                </div>
+
+                <div class="tworca">
+                    <div class="obraz_tw"><img src="/media/coded to feel.jpg" alt="placeholder3"></div>
+                    <h2>ja</h2>
+                    <p>ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe
+                        ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe
+                        ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe ebebebe
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../skrypt.js"></script>
+
+</body>
+
+</html>

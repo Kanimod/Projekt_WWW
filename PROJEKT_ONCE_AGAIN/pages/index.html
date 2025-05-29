@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Granko</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body id="cialo">
+    <header id="glowa">
+        <div class="logo"><a href="index.html"><img src="/media/logo.png" alt="logo"></a></div>
+        <h1>Witamy w Świecie Gier!!</h1>
+        <h3>Ostani raz odwiedziłes nas: </h3>
+        <p id="czas"></p>
+    </header>
+
+    <nav class="navbar">
+        <div class="nawigacja">
+            <ul class="n_lewa">
+                <li><a class="aktywne" href="index.html">Gry</a></li>
+                <li><a href="about.html">O nas</a></li>
+                <li><a href="opinia.html">Ocenka</a></li>
+            </ul>
+
+            <ul class="n_prawa">
+                <li><input id="wyszukiwanie" type="text" name="wszyuk" placeholder="szukaj..."></li>
+                <li><img id="tryb" src="/media/tryb.png"></li>
+                <li> <button onclick="showLogin()" class="button-login">Zaloguj się :3!!!!</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="login-container" class="hidden">
+        <div class="login">
+
+            <button onclick="hideLogin()" class="close-login">X</button>
+
+            <div class="text">
+                Zaloguj sie :3
+            </div>
+
+            <form action="link/referencja gdzie wyslac pobrane dane">
+                <div class="data">
+                    <label for="">Email</label>
+                    <input type="email" required placeholder="Wpisz Email" minlength="0"
+                        oninvalid="this.setCustomValidity('Email is required')" oninput="this.setCustomValidity('')">
+                </div>
+
+                <div class="data">
+                    <label for="">Haslo</label>
+                    <input type="password" required placeholder="Wpisz Maslo" minlength="0"
+                        oninvalid="this.setCustomValidity('Maslo is required')" oninput="this.setCustomValidity('')">
+                </div>
+
+                <div class="forgotten-password">
+                    <a href="/media/zad_cat.jpg">Zapomniano Pasow?</a>
+                </div>
+
+                <div class="submit-button">
+                    <button type="przeslij">Zaloguj</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="hidden" id="nieznaleziono">
+        <div class="popup-nieznaleziono">
+            <div class="popup-lewo">
+                <img src="/media/zad_cat.jpg">
+            </div>
+            <div class="popup-prawo">
+                <h1>Przepraszamy!!!</h1>
+                <p>Gra <a id="komunikat"></a> nie istnieje</p>
+                <div class="guzikkot">
+                    <button onclick="zamknijPopUp()" class="okay">zamknij</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="main">
+        <div id="reklama-l">
+            <div class="huj">
+                <img src="/media/ad1.jpg">
+            </div>
+          
+        </div>
+
+        <div id="gryy">
+            <div class="gra">
+                <h2>Flopy brid</h2>
+                <div class="obrazek_gra"><a href="gierka1_plinko/plinko.html"><img src="/media/flopy.png" alt="ptaszek"></a><h1>Play</h1></div>
+            </div>
+
+            <div class="gra">
+                <h2>aaaa</h2>
+                <div class="obrazek_gra"><img src="/media/flopy.png" alt="ptaszek"></div>
+            </div>
+
+            <div class="gra">
+                <h2>bbbb</h2>
+                <div class="obrazek_gra"><img src="/media/flopy.png" alt="ptaszek"></div>
+
+            </div>
+
+            <div class="gra">
+                <h2>cccc</h2>
+                <div class="obrazek_gra"><img src="/media/flopy.png" alt="ptaszek"></div>
+            </div>
+
+            <div class="gra">
+                <h2>dddd</h2>
+                <div class="obrazek_gra"><img src="/media/flopy.png" alt="ptaszek"></div>
+            </div>
+
+            <div class="gra">
+                <h2>eeee</h2>
+                <div class="obrazek_gra"><img src="/media/flopy.png" alt="ptaszek"></div>
+            </div>
+        </div>
+
+        <div id="reklama-r">
+            <a>huj</a>
+
+        </div>
+    </div>
+
+    <script src="../skrypt.js"></script>
+</body>
+
+</html>
