@@ -7,42 +7,52 @@
      font-family: "Comic Sans MS", "Comic Sans";
 }
 
-#cialo.ciemno{
-    background-color: blueviolet;
-}
+    #cialo.ciemno {
+        background-color: #343434;
+    }
 
-#cialo.jasno{
-    background-color: aqua;
-}
+    #cialo.jasno {
+        background-color: #9F9F92;
+    }
 
 #glowa{
     text-align: center;
     padding: 20px;
 }
 
-#glowa.ciemno{
-    background: orange;
-}
+    #glowa.ciemno {
+        background: #2D2D2D;
+    }
 
-#glowa.jasno{
-    background: green;
-}
+    #glowa.jasno {
+        background: #4E3D42;
+    }
 
 
-header img{
+header img {
     border: 10px solid black;
     border-radius: 10px;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     height: auto;
 }
 
-.navbar{
-    background-color: darkslategray;
+.navbar {
+    background-color: #423D42;
     position: sticky;
     top: 0;
 }
 
-.nawigacja{
+    .navbar.jasno {
+        background-color: #4E3D42;
+    }
+
+    .navbar.ciemno {
+        background-color: #2D2D2D;
+    }
+
+
+    .nawigacja{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -98,23 +108,25 @@ header img{
     height: auto;
 }
 
-.main{
-    margin-left: 25%;
-    margin-right: 25%;
-    background-color: #39FF14;
+.main {
+    margin: 0 auto;
+    max-width: 800px;
+    width: 90%;
+    background-color: #725A61;
     text-align: center;
     border: 10px solid black;
 }
 
-.gra{
+.gra {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top: 50px;
     padding-bottom: 30px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 90%;
 }
 
 .obrazek_gra img{

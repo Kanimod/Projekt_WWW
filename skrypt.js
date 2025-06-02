@@ -17,25 +17,29 @@ document.getElementById("czas").innerHTML = czas_zap;
 const toggleButton = document.getElementById('tryb');
 const cialo = document.getElementById('cialo');
 const glowa = document.getElementById('glowa');
-
+const navbar = document.getElementById('navbar')
 const zapiszTryb = localStorage.getItem('them');
 
 if (zapiszTryb){
   cialo.classList.add(zapiszTryb);
   glowa.classList.add(zapiszTryb);
+  navbar.classList.add(zapiszTryb);
 } else{
   cialo.classList.add('jasno');
   glowa.classList.add('jasno');
+  navbar.classList.add('jasno');
 };
 
 toggleButton.addEventListener('click', () => {
     if (cialo.classList.contains('jasno')) {
         cialo.classList.replace('jasno', 'ciemno');
         glowa.classList.replace('jasno', 'ciemno');
+        navbar.classList.replace('jasno', 'ciemno');
         localStorage.setItem('them', 'ciemno');
     } else {
         cialo.classList.replace('ciemno', 'jasno');
         glowa.classList.replace('ciemno', 'jasno');
+        navbar.classList.replace('ciemno', 'jasno');
         localStorage.setItem('them', 'jasno');
     }
 });
@@ -96,7 +100,3 @@ document.getElementById('formularz_f').addEventListener('submit', function(event
     console.error('Błąd podczas wysyłania:', error);
   });
 });
-
-
-
-
