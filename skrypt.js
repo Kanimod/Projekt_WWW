@@ -8,11 +8,19 @@ const hideLogin = () => {
 
 const czas_zap = localStorage.getItem('zapis_czasu');
 
-window.addEventListener('beforeunload', function(){
-  this.localStorage.setItem('zapis_czasu', new Date());
-})
+const czasss = new Date();
+
+const dzien = czasss.toLocaleDateString('en-GB');
+
+window.addEventListener('beforeunload', () => {
+  const navType = performance.getEntriesByType("navigation")[0]?.type;
+  if (navType !== 'reload') {
+    localStorage.setItem('zapis_czasu', dzien);
+  }
+});
 
 document.getElementById("czas").innerHTML = czas_zap;
+
 
 const toggleButton = document.getElementById('tryb');
 const cialo = document.getElementById('cialo');
@@ -100,3 +108,19 @@ document.getElementById('formularz_f').addEventListener('submit', function(event
     console.error('Błąd podczas wysyłania:', error);
   });
 });
+
+
+fetch('db.json')
+  .then(response => response.json())
+  .then(data=>{
+    const opiniLista = document.getElementById('zbior_opini');
+    let licznik = 1;
+    data.opinie.forEach(opinia =>{
+      const li = document.createElement('li');
+      li.textContent = `${licznik}. Jakość: ${opinia.jakosc} Ulubiona Gra: ${opinia.ulub_gra} Opinia: ${opinia.opinia}`;
+      licznik += 1;
+      opiniLista.appendChild(li);
+    });
+  })
+  
+  .catch(error => console.error('Error loading JSON:', error));

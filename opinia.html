@@ -9,7 +9,7 @@
         <header id="glowa">
             <div class="logo"><a href="index.html"><img src="logo.png" alt="logo"></a></div>
             <h1>Witamy w Świecie Gier!!</h1>
-            <h3>Ostani raz odwiedziłes nas: </h3>
+            <h3>Twoja ostatnia wizyta: </h3>
             <p id="czas"></p>
         </header>
 
@@ -22,7 +22,7 @@
                 </ul>
                 
                 <ul class="n_prawa">
-                    <li><img id="tryb" src="tryb.png" ></li>
+                    <li><button><img id="tryb" src="tryb.png"></button></li>
                     <li><button onclick="showLogin()" class="button-login">Zaloguj się :3!!!!</button></li>
                 </ul>
             </div>
@@ -85,10 +85,9 @@
 
                 <label>Ulubiona gra:</label><br>
                 <select name="ulub_gra">
-                    <option value="Gra_1">Gra_1</option>
-                    <option value="Gra_2">Gra_2</option>
-                    <option value="Gra_3">Gra_3</option>
-                    <option value="Gra_4">Gra_4</option>
+                    <option value="Plinko">Plinko</option>
+                    <option value="Conway">Conway</option>
+                    <option value="RPG">RPG</option>
                 </select><br>
 
                 <label>Co sądzisz:</label><br>
@@ -96,6 +95,11 @@
 
                 <button type="submit">Wyslij</button>
             </form>
+
+            <div class="inni">
+                <h1>To sądzili inni:</h1>
+                <ul id="zbior_opini"></ul>
+            </div>
         </div>
         
         <script src="skrypt.js"></script>
