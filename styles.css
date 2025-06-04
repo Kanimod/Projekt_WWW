@@ -200,7 +200,7 @@ header img {
     display: flex;
 }
   
-#login-container {
+#login-container,#nieznaleziono {
     top: 0;
     position: absolute;
     align-items: center;
@@ -210,7 +210,7 @@ header img {
     z-index: 999999;
 }
   
-.login {
+.login,.popup-nieznaleziono {
     border-radius: 10px;
     position: fixed;
     align-items: center;
@@ -303,6 +303,36 @@ form .submit-button button {
   
 .button-login{
     margin-right: 30px;
+}
+
+.popup-nieznaleziono{
+    width: 400px;
+    height: 120px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.poup-lewo, .poup-prawo{
+    width: 50%;
+    height: 50%;
+}
+
+.guzikkot{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: row;
+}
+
+.popup-nieznaleziono img{
+    height: 70%;
+    width: 70%;
+}
+
+#komunikat{
+    text-decoration: underline;
+    font-weight: bold;
+    color: brown;
 }
 
 #zbior_opini{

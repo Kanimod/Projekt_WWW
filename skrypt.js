@@ -65,11 +65,15 @@ function odapalWyszuk(){
   });
 
   if (!zanelzione){
-    alert("nie znaleziono")
+    document.getElementById("nieznaleziono").className="shown";
+    document.getElementById("komunikat").innerHTML=zapyt;
   }
 
   document.getElementById("wyszukiwanie").value = "";
 };
+const zamknijPopUp = () =>{
+  document.getElementById("nieznaleziono").className="hidden";
+}
 
 const wyszukiwanie = document.getElementById("wyszukiwanie");
 
