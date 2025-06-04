@@ -6,6 +6,65 @@ const hideLogin = () => {
   document.getElementById("login-container").className = "hidden";
 }  
 
+
+const logowanie_f = document.getElementById("logowanie");
+
+if(logowanie_f){
+  const loginWej = document.getElementById("login_t").value;
+  const hasloWej = document.getElementById("haslo_t").value;
+
+  logowanie_f.addEventListener('submit', function(e) {
+    e.preventDefault();
+      
+    fetch("http://localhost:3000/uzytkownicy")
+    .then(response => response.json())
+    .then(uzytkownicy =>{
+      const dopasowanie = uzytkownicy.find(uzytkownik => uzytkownik.login === loginWej && uzytkownik.haslo === hasloWej);
+
+      if(dopasowanie){
+        alert('udalo sie zalogowac');
+        document.getElementById("login-container").className = "hidden";
+      } else {
+        alert(':(((');
+        this.reset();
+      }
+    })
+    .catch(error => {
+      console.error("problemy z otczytanie JSON: ", error);
+    });
+  });
+
+  document.getElementById('rejestr').addEventListener('click', () => {
+    
+    const dane_rej = {
+      login: loginWej,
+      haslo: hasloWej
+    }
+
+    fetch('http://localhost:3000/uzytkownicy', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dane_rej)
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log('Zarejestrowany:', result);
+    })
+    .catch(error => {
+      console.error('Błąd podczas wysyłania:', error);
+    });
+  });
+
+    alert("zaresjtrowales sie");
+}
+
+
+
+
+
+
 const czas_zap = localStorage.getItem('zapis_czasu');
 
 const czasss = new Date();
@@ -65,11 +124,16 @@ function odapalWyszuk(){
   });
 
   if (!zanelzione){
-    alert("nie znaleziono")
+    document.getElementById("nieznaleziono").className="shown";
+    document.getElementById("komunikat").innerHTML=zapyt;
   }
 
   document.getElementById("wyszukiwanie").value = "";
 };
+
+const zamknijPopUp = () =>{
+    document.getElementById("nieznaleziono").className="hidden";
+}
 
 const wyszukiwanie = document.getElementById("wyszukiwanie");
 
@@ -81,35 +145,67 @@ if (wyszukiwanie) {
   });
 }
 
-document.getElementById('formularz_f').addEventListener('submit', function(event){
-  event.preventDefault();
+const formularz_f = document.getElementById('formularz_f');
+const opiniLista = document.getElementById('zbior_opini');
 
-  const dane_f = new FormData(this);
-  const dane = {
-    jakosc: dane_f.get('jakosc'),
-    ile_gier: dane_f.get('ile_gier'),
-    ulub_gra: dane_f.get('ulub_gra'),
-    opinia: dane_f.get('opinia')
-  };
-
-  fetch('http://localhost:3000/opinie', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(dane)
-  })
+if (formularz_f){
+  fetch('http://localhost:3000/opinie')
   .then(response => response.json())
-  .then(result => {
-    console.log('Form submitted:', result);
-    alert('Dziękujemy za opinię!');
+  .then(data => {
+    let licznik = 1;
+    data.forEach(opinia => {
+      const li = document.createElement('li');
+      li.textContent = `${licznik}. Jakość: ${opinia.jakosc}, Ulubiona Gra: ${opinia.ulub_gra}, Opinia: ${opinia.opinia}`;
+      opiniLista.appendChild(li);
+      licznik++;
+    });
   })
   .catch(error => {
-    console.error('Błąd podczas wysyłania:', error);
+    console.error('Błąd przy ładowaniu opinii:', error);
   });
-});
 
+  formularz_f.addEventListener('submit', function(e){
+    e.preventDefault();
+    console.log("Form submitted via JS");
 
+    const dane_f = new FormData(this);
+    const dane = {
+      jakosc: dane_f.get('jakosc'),
+      ile_gier: dane_f.get('ile_gier'),
+      ulub_gra: dane_f.get('ulub_gra'),
+      opinia: dane_f.get('opinia')
+    };
+
+    fetch('http://localhost:3000/opinie', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dane)
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log('Form submitted:', result);
+      document.getElementById("udane").className="shown";
+
+      const li = document.createElement('li');
+      const licznik = opiniLista.children.length + 1;
+      li.textContent = `${licznik}. Jakość: ${dane.jakosc}, Ulubiona Gra: ${dane.ulub_gra}, Opinia: ${dane.opinia}`;
+      opiniLista.appendChild(li);
+
+      formularz_f.reset();
+    })
+    .catch(error => {
+      console.error('Błąd podczas wysyłania:', error);
+    });
+  });
+
+  const zamknijPopUp2 = () =>{
+      document.getElementById("udane").className="hidden";
+  };
+}
+
+/*
 fetch('db.json')
   .then(response => response.json())
   .then(data=>{
@@ -124,3 +220,5 @@ fetch('db.json')
   })
   
   .catch(error => console.error('Error loading JSON:', error));
+*/
+

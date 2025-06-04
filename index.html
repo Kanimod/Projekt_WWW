@@ -24,7 +24,7 @@
                 <ul class="n_prawa">
                     <li><input id="wyszukiwanie" type="text" name="wszyuk" placeholder="szukaj..."></li>
                     <li><button><img id="tryb" src="tryb.png"></button></li>
-                    <li> <button onclick="showLogin()" class="button-login">Zaloguj się :3!!!!</button></li>
+                    <li> <button onclick="showLogin()" class="button-login">Zaloguj się</button></li>
                 </ul>
             </div>
         </nav>
@@ -35,34 +35,44 @@
                 <button onclick="hideLogin()" class="close-login">X</button>
     
                 <div class="text">
-                    Zaloguj sie :3
+                    Zaloguj się
                 </div>
     
-                <form action="link/referencja gdzie wyslac pobrane dane">
+                <form id="logowanie">
                     <div class="data">
-                        <label for="">Email</label>
-                        <input type="email" required placeholder="Wpisz Email" minlength="0"
-                            oninvalid="this.setCustomValidity('Email is required')" oninput="this.setCustomValidity('')">
+                        <label>Login</label>
+                        <input id="login_t" name="login" placeholder="Wpisz Login" minlength="0" required>
                     </div>
     
                     <div class="data">
-                        <label for="">Haslo</label>
-                        <input type="password" required placeholder="Wpisz Maslo" minlength="0"
-                            oninvalid="this.setCustomValidity('Maslo is required')" oninput="this.setCustomValidity('')">
-                    </div>
-    
-                    <div class="forgotten-password">
-                        <a href="media/ehhh.jpeg">Zapomniano Pasow?</a>
+                        <label>Haslo</label>
+                        <input id="haslo_t" type="password" name="haslo" placeholder="Wpisz Hasło" minlength="0" required>
                     </div>
     
                     <div class="submit-button">
-                        <button type="przeslij">Zaloguj</button>
+                        <button type="submit">Zaloguj</button>
+                        <button type="button" id="rejestr">Zarejstruj sie</button>
                     </div>
     
                 </form>
             </div>
         </div>
     
+    <div class="hidden" id="nieznaleziono">
+        <div class="popup-nieznaleziono">
+            <div class="popup-prawo">
+                <h1>Przepraszamy!!!</h1>
+                <p>Gra <a id="komunikat"></a> nie istnieje</p>
+                <div class="guzikkot">
+                    <button onclick="zamknijPopUp()" class="okay">zamknij</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
         <div class="main">
             <div id="gryy">
                 <div class="gra">

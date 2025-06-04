@@ -8,39 +8,22 @@
       "opinia": "fsd"
     },
     {
-      "id": "7d86",
-      "jakosc": "1",
-      "ile_gier": "2",
-      "ulub_gra": "Gra_3",
-      "opinia": "test"
+      "id": "360e",
+      "jakosc": null,
+      "ile_gier": null,
+      "ulub_gra": "Plinko",
+      "opinia": ""
+    }
+  ],
+  "uzytkownicy": [
+    {
+      "login": "admin",
+      "haslo": "123"
     },
     {
-      "id": "00c2",
-      "jakosc": "3",
-      "ile_gier": "5",
-      "ulub_gra": "Gra_4",
-      "opinia": "egegegegewafdsaf \n"
-    },
-    {
-      "id": "bfd0",
-      "jakosc": "1",
-      "ile_gier": "3",
-      "ulub_gra": "Gra_2",
-      "opinia": "dfsd"
-    },
-    {
-      "id": "4cbb",
-      "jakosc": "2",
-      "ile_gier": "3",
-      "ulub_gra": "Gra_2",
-      "opinia": "fsdfsdf"
-    },
-    {
-      "id": "58b7",
-      "jakosc": "1",
-      "ile_gier": "2",
-      "ulub_gra": "Gra_3",
-      "opinia": "Tico"
+      "id": "f597",
+      "login": "",
+      "haslo": ""
     }
   ]
 }
