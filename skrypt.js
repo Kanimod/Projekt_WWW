@@ -6,66 +6,108 @@ const hideLogin = () => {
   document.getElementById("login-container").className = "hidden";
 }  
 
+let czyZalog = false;
+let ktoZalog = "";
 
 const logowanie_f = document.getElementById("logowanie");
 
 if(logowanie_f){
-  const loginWej = document.getElementById("login_t").value;
-  const hasloWej = document.getElementById("haslo_t").value;
+  if(czyZalog == false){
+    console.log(czyZalog);
+    const loginButt = document.getElementById('zalog');
+    const rejestrButt = document.getElementById('rejestr');
 
-  logowanie_f.addEventListener('submit', function(e) {
-    e.preventDefault();
-      
-    fetch("http://localhost:3000/uzytkownicy")
-    .then(response => response.json())
-    .then(uzytkownicy =>{
-      const dopasowanie = uzytkownicy.find(uzytkownik => uzytkownik.login === loginWej && uzytkownik.haslo === hasloWej);
+    loginButt.addEventListener('click', async () => {
+    const loginWej = document.getElementById("login_t").value;
+    const hasloWej = document.getElementById("haslo_t").value;
 
-      if(dopasowanie){
-        alert('udalo sie zalogowac');
-        document.getElementById("login-container").className = "hidden";
+    try {
+      const response = await fetch('http://localhost:3000/uzytkownicy');
+      const uzytkownicy = await response.json();
+
+      const dopasowanie = uzytkownicy.find(
+        uzyt => uzyt.login === loginWej && uzyt.haslo === hasloWej
+      );
+
+      if (dopasowanie) {
+        alert('Logowanie udane!');
+        czyZalog = true;
+        ktoZalog = loginWej;
+        document.getElementById('czas-log').className = 'shown';
+        hideLogin();
+        logowanie_f.reset();
+        console.log(czyZalog);
+        document.getElementById("button-login").innerHTML = "Wyloguj sie";
       } else {
-        alert(':(((');
-        this.reset();
+        alert('Logowanie nieudane :(');
+        logowanie_f.reset();
       }
-    })
-    .catch(error => {
-      console.error("problemy z otczytanie JSON: ", error);
-    });
-  });
-
-  document.getElementById('rejestr').addEventListener('click', () => {
-    
-    const dane_rej = {
-      login: loginWej,
-      haslo: hasloWej
+    } catch (error) {
+      console.error('Błąd logowania:', error);
+      logowanie_f.reset();
     }
-
-    fetch('http://localhost:3000/uzytkownicy', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(dane_rej)
-    })
-    .then(response => response.json())
-    .then(result => {
-      console.log('Zarejestrowany:', result);
-    })
-    .catch(error => {
-      console.error('Błąd podczas wysyłania:', error);
-    });
   });
+    
+    rejestrButt.addEventListener('click', async () => {
+    const loginWej = document.getElementById("login_t").value;
+    const hasloWej = document.getElementById("haslo_t").value;
+    const kalendarz = new Date();
 
-    alert("zaresjtrowales sie");
+    try {
+      const response = await fetch('http://localhost:3000/uzytkownicy');
+      const uzytkownicy = await response.json();
+
+      const dopasowanie = uzytkownicy.find(uzyt => uzyt.login === loginWej);
+
+      if (dopasowanie) {
+        alert('Taki użytkownik już istnieje :(');
+        logowanie_f.reset();
+      } else {
+        const dane = {
+          login: loginWej,
+          haslo: hasloWej,
+          czas: kalendarz
+        };
+
+        const postResponse = await fetch('http://localhost:3000/uzytkownicy', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dane)
+        });
+
+        if (postResponse.ok) {
+          hideLogin();
+          alert('Utworzyłeś konto!');
+          czyZalog = true;
+          ktoZalog = loginWej;
+        } else {
+          console.error("Błąd serwera przy dodawaniu użytkownika.");
+        }
+      }
+    } catch (error) {
+      console.error('Błąd rejestracji:', error);
+      logowanie_f.reset();
+    }
+  });
+} else{
+  const wylogBtn = document.getElementById('button-login');
+};
+}
+
+if(czyZalog){
+  const wylogBtn = document.getElementById('button-login');
+
+  wylogBtn.addEventListener('clikc', async () => {
+    console.log("wylogowanie");
+    czyZalog = false;
+  })
 }
 
 
-
-
-
-
-const czas_zap = localStorage.getItem('zapis_czasu');
+document.getElementById("czas").innerHTML = "aaaaa";
+/*const czas_zap = localStorage.getItem('zapis_czasu');
 
 const czasss = new Date();
 
@@ -79,7 +121,7 @@ window.addEventListener('beforeunload', () => {
 });
 
 document.getElementById("czas").innerHTML = czas_zap;
-
+*/
 
 const toggleButton = document.getElementById('tryb');
 const cialo = document.getElementById('cialo');
@@ -130,9 +172,7 @@ function odapalWyszuk(){
 
   document.getElementById("wyszukiwanie").value = "";
 };
-const zamknijPopUp = () =>{
-  document.getElementById("nieznaleziono").className="hidden";
-}
+
 
 const zamknijPopUp = () =>{
     document.getElementById("nieznaleziono").className="hidden";
@@ -148,10 +188,9 @@ if (wyszukiwanie) {
   });
 }
 
-const formularz_f = document.getElementById('formularz_f');
 const opiniLista = document.getElementById('zbior_opini');
 
-if (formularz_f){
+if(opiniLista){
   fetch('http://localhost:3000/opinie')
   .then(response => response.json())
   .then(data => {
@@ -166,12 +205,14 @@ if (formularz_f){
   .catch(error => {
     console.error('Błąd przy ładowaniu opinii:', error);
   });
+}
 
-  formularz_f.addEventListener('submit', function(e){
-    e.preventDefault();
-    console.log("Form submitted via JS");
+const wyslijBtn = document.getElementById('wyslij_btn');
+const formularz_f = document.getElementById('formularz_f');
 
-    const dane_f = new FormData(this);
+if (wyslijBtn && formularz_f) {
+  wyslijBtn.addEventListener('click', async () => {
+    const dane_f = new FormData(formularz_f);
     const dane = {
       jakosc: dane_f.get('jakosc'),
       ile_gier: dane_f.get('ile_gier'),
@@ -179,49 +220,24 @@ if (formularz_f){
       opinia: dane_f.get('opinia')
     };
 
-    fetch('http://localhost:3000/opinie', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(dane)
-    })
-    .then(response => response.json())
-    .then(result => {
-      console.log('Form submitted:', result);
-      document.getElementById("udane").className="shown";
+    try {
+      const response = await fetch('http://localhost:3000/opinie', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dane)
+      });
 
-      const li = document.createElement('li');
-      const licznik = opiniLista.children.length + 1;
-      li.textContent = `${licznik}. Jakość: ${dane.jakosc}, Ulubiona Gra: ${dane.ulub_gra}, Opinia: ${dane.opinia}`;
-      opiniLista.appendChild(li);
-
-      formularz_f.reset();
-    })
-    .catch(error => {
-      console.error('Błąd podczas wysyłania:', error);
-    });
+      if (response.ok) {
+        formularz_f.reset();
+        alert('dziekujemy za opienie')
+      } else {
+        console.error("Błąd serwera");
+      }
+    } catch (error) {
+      console.error('Przesłanie nieudane', error);
+    }
   });
-
-  const zamknijPopUp2 = () =>{
-      document.getElementById("udane").className="hidden";
-  };
 }
-
-/*
-fetch('db.json')
-  .then(response => response.json())
-  .then(data=>{
-    const opiniLista = document.getElementById('zbior_opini');
-    let licznik = 1;
-    data.opinie.forEach(opinia =>{
-      const li = document.createElement('li');
-      li.textContent = `${licznik}. Jakość: ${opinia.jakosc} Ulubiona Gra: ${opinia.ulub_gra} Opinia: ${opinia.opinia}`;
-      licznik += 1;
-      opiniLista.appendChild(li);
-    });
-  })
-  
-  .catch(error => console.error('Error loading JSON:', error));
-*/
 

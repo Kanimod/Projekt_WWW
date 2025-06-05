@@ -3,33 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <title>Test Form</title>
+  <style>
+    #popup {
+      display: none;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+    #popup.show {
+      display: flex;
+    }
+  </style>
 </head>
 <body>
-  <ul id="zbior_opini"></ul>
-
-  <form id="formularz_f">
-    <input type="text" name="ulub_gra" placeholder="Ulubiona gra" required />
-    <textarea name="opinia" placeholder="Twoja opinia" required></textarea>
+  <form id="test-form">
+    <label>Opinia: <input name="opinia" required></label>
     <button type="submit">Wyślij</button>
   </form>
 
+  <div id="popup">
+    <div>
+      Dziękujemy za opinię!
+      <br>
+      <button id="close-popup">Zamknij</button>
+    </div>
+  </div>
+
   <script>
-    const opiniLista = document.getElementById('zbior_opini');
-    const formularz_f = document.getElementById('formularz_f');
+    const form = document.getElementById('test-form');
+    const popup = document.getElementById('popup');
+    const closeBtn = document.getElementById('close-popup');
 
-    formularz_f.addEventListener('submit', function(event) {
-      event.preventDefault();
-      console.log("✅ Form submitted via JS");
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      console.log("Zatrzymano reload");
 
-      const formData = new FormData(this);
-      const ulub_gra = formData.get('ulub_gra');
-      const opinia = formData.get('opinia');
+      // simulate successful POST
+      await new Promise(res => setTimeout(res, 300)); // fake delay
+      popup.classList.add('show');
+    });
 
-      const li = document.createElement('li');
-      li.textContent = `Ulubiona gra: ${ulub_gra}, Opinia: ${opinia}`;
-      opiniLista.appendChild(li);
-
-      this.reset();
+    closeBtn.addEventListener('click', () => {
+      popup.classList.remove('show');
+      location.reload(); // reload only after closing
     });
   </script>
 </body>

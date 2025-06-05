@@ -4,13 +4,17 @@
         <meta charset="utf-8" />
         <title>Ocenka</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="icon" href="favicon.ico">
     </head>
+    
     <body id="cialo">
         <header id="glowa">
             <div class="logo"><a href="index.html"><img src="logo.png" alt="logo"></a></div>
             <h1>Witamy w Świecie Gier!!</h1>
-            <h3>Twoja ostatnia wizyta: </h3>
-            <p id="czas"></p>
+            <div id="czas-log" class="hidden">
+                <h3>Twoja ostatnia wizyta: </h3>
+                <p id="czas"></p>
+            </div>
         </header>
 
         <nav class="navbar" id="navbar">
@@ -34,22 +38,23 @@
                 <button onclick="hideLogin()" class="close-login">X</button>
     
                 <div class="text">
-                    Zaloguj się
+                    Zaloguj się/ Zarejestruj się
                 </div>
     
                 <form id="logowanie">
                     <div class="data">
                         <label>Login</label>
-                        <input id="login_t" name="login" placeholder="Wpisz Login" minlength="0">
+                        <input id="login_t" name="login" placeholder="Wpisz Login" minlength="0" required>
                     </div>
     
                     <div class="data">
                         <label>Haslo</label>
-                        <input id="haslo_t" type="password" name="haslo" placeholder="Wpisz Hasło" minlength="0">
+                        <input id="haslo_t" type="password" name="haslo" placeholder="Wpisz Hasło" minlength="0" required>
                     </div>
     
                     <div class="submit-button">
-                        <button type="submit">Zaloguj</button>
+                        <button type="button" id="zalog">Zaloguj sie</button>
+                        <button type="button" id="rejestr">Zarejstruj sie</button>
                     </div>
     
                 </form>
@@ -87,30 +92,16 @@
                 <label>Co sądzisz:</label><br>
                 <textarea maxlength="256" rows="8" name="opinia" placeholder="Chętnie weźmiemy twoje zdanie pod uwagę"></textarea><br>
 
-                <button type="submit">Wyslij</button>
+                <button type="button" id="wyslij_btn">Wyslij</button>
             </form>
 
             <div class="inni">
                 <h1>To sądzili inni:</h1>
                 <ul id="zbior_opini"></ul>
             </div>
+
         </div>
         
-        <div class="hidden" id="udane">
-            <div class="popup-opinia">
-                <div class="popup-prawo">
-                    <h1>Dziękujemy!!!</h1>
-                    <p>Twoja opinia dużo dla nas znaczy!!!</p>
-                    <div class="guzikkot">
-                        <button onclick="zamknijPopUp2()" class="okay">zamknij</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-
         <script src="skrypt.js"></script>
 
     </body>

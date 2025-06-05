@@ -5,14 +5,17 @@
         <meta charset="utf-8" />
         <title>Granko</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="icon" href="favicon.ico">
     </head>
 
     <body id="cialo">
         <header id="glowa">
             <div class="logo"><a href="index.html"><img src="logo.png" alt="logo"></a></div>
             <h1>Witamy w Świecie Gier!!</h1>
-            <h3>Twoja ostatnia wizyta: </h3>
-            <p id="czas"></p>
+            <div id="czas-log" class="hidden">
+                <h3>Twoja ostatnia wizyta: </h3>
+                <p id="czas"></p>
+            </div>
         </header>
 
         <nav class="navbar" id="navbar">
@@ -26,7 +29,7 @@
                 <ul class="n_prawa">
                     <li><input id="wyszukiwanie" type="text" name="wszyuk" placeholder="szukaj..."></li>
                     <li><button><img id="tryb" src="tryb.png"></button></li>
-                    <li> <button onclick="showLogin()" class="button-login">Zaloguj się</button></li>
+                    <li> <button onclick="showLogin()" id="button-login">Zaloguj się</button></li>
                 </ul>
             </div>
         </nav>
@@ -37,7 +40,7 @@
                 <button onclick="hideLogin()" class="close-login">X</button>
     
                 <div class="text">
-                    Zaloguj się
+                    Zaloguj się/ Zarejestruj się
                 </div>
     
                 <form id="logowanie">
@@ -52,19 +55,16 @@
                     </div>
     
                     <div class="submit-button">
-                        <button type="submit">Zaloguj</button>
+                        <button type="button" id="zalog">Zaloguj sie</button>
                         <button type="button" id="rejestr">Zarejstruj sie</button>
                     </div>
     
                 </form>
             </div>
         </div>
-
+    
         <div class="hidden" id="nieznaleziono">
             <div class="popup-nieznaleziono">
-                <div class="popup-lewo">
-                    <img src="/media/zad_cat.jpg">
-                </div>
                 <div class="popup-prawo">
                     <h1>Przepraszamy!!!</h1>
                     <p>Gra <a id="komunikat"></a> nie istnieje</p>
@@ -73,22 +73,8 @@
                     </div>
                 </div>
             </div>
+
         </div>
-    
-    <div class="hidden" id="nieznaleziono">
-        <div class="popup-nieznaleziono">
-            <div class="popup-prawo">
-                <h1>Przepraszamy!!!</h1>
-                <p>Gra <a id="komunikat"></a> nie istnieje</p>
-                <div class="guzikkot">
-                    <button onclick="zamknijPopUp()" class="okay">zamknij</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
 
         <div class="main">
             <div id="gryy">
