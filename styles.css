@@ -203,7 +203,7 @@ header img {
     display: flex;
 }
   
-#login-container {
+#login-container,#nieznaleziono {
     top: 0;
     position: absolute;
     align-items: center;
@@ -213,7 +213,7 @@ header img {
     z-index: 999999;
 }
   
-.login {
+.login,.popup-nieznaleziono {
     border-radius: 10px;
     position: fixed;
     align-items: center;
@@ -312,6 +312,7 @@ form .submit-button button {
 }
 
 .popup-nieznaleziono{
+<<<<<<< HEAD
     border-radius: 10px;
     border: 10px solid black;
     position: fixed;
@@ -339,6 +340,15 @@ form .submit-button button {
 
 
 .poup-prawo{
+=======
+    width: 400px;
+    height: 120px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.poup-lewo, .poup-prawo{
+>>>>>>> b1c8fd4314cc39a634110264a8b33e74100bbeaa
     width: 50%;
     height: 50%;
 }
@@ -350,6 +360,19 @@ form .submit-button button {
     flex-flow: row;
 }
 
+<<<<<<< HEAD
+=======
+.popup-nieznaleziono img{
+    height: 70%;
+    width: 70%;
+}
+
+#komunikat{
+    text-decoration: underline;
+    font-weight: bold;
+    color: brown;
+}
+>>>>>>> b1c8fd4314cc39a634110264a8b33e74100bbeaa
 
 #zbior_opini{
     padding-left: 0;

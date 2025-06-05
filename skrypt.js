@@ -130,6 +130,9 @@ function odapalWyszuk(){
 
   document.getElementById("wyszukiwanie").value = "";
 };
+const zamknijPopUp = () =>{
+  document.getElementById("nieznaleziono").className="hidden";
+}
 
 const zamknijPopUp = () =>{
     document.getElementById("nieznaleziono").className="hidden";

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="pl">    
+<html lang="pl">  
+
     <head>
         <meta charset="utf-8" />
         <title>Granko</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
+
     <body id="cialo">
         <header id="glowa">
             <div class="logo"><a href="index.html"><img src="logo.png" alt="logo"></a></div>
@@ -55,6 +57,21 @@
                     </div>
     
                 </form>
+            </div>
+        </div>
+
+        <div class="hidden" id="nieznaleziono">
+            <div class="popup-nieznaleziono">
+                <div class="popup-lewo">
+                    <img src="/media/zad_cat.jpg">
+                </div>
+                <div class="popup-prawo">
+                    <h1>Przepraszamy!!!</h1>
+                    <p>Gra <a id="komunikat"></a> nie istnieje</p>
+                    <div class="guzikkot">
+                        <button onclick="zamknijPopUp()" class="okay">zamknij</button>
+                    </div>
+                </div>
             </div>
         </div>
     
