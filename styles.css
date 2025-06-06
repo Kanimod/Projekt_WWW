@@ -17,7 +17,6 @@
 
 #glowa{
     align-items: center;
-    padding: 20px;
     color: navajowhite;
     display: flex;
     flex-direction: column;
@@ -33,7 +32,6 @@
 
 #czas-log{
     align-items: center;
-    display: flex;
     flex-direction: column;
 }
 
@@ -285,7 +283,11 @@ form .data input:focus {
     border-color: papayawhip;
     border-bottom-width: 2px;
 }
-  
+
+form .data-2{
+    margin-top: 5%;
+}
+
 form .forgotten-password {
     margin-top: 20px;
     display: flex;

@@ -4,15 +4,15 @@
         <meta charset="utf-8" />
         <title>O nas!</title>
         <link rel="stylesheet" type="text/css" href="../styles.css">
-        <link rel="icon" href="favicon.ico">
+        <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
     </head>
     <body id="cialo">
         <header id="glowa">
             <div class="logo"><a href="/pages/index.html"><img src="/media/logo.png" alt="logo"></a></div>
             <h1>Witamy w Świecie Gier!!</h1>
             <div id="czas-log" class="hidden">
-                <h3>Twoja ostatnia wizyta: </h3>
-                <p id="czas"></p>
+                <h3>Dobrze cie widziec - </h3>
+                <h3 id="czas"></h3>
             </div>
         </header>
 
@@ -26,7 +26,7 @@
                 
                 <ul class="n_prawa">
                     <li><button><img id="tryb" src="/media/tryb.png"></button></li>
-                    <li><button onclick="showLogin()" class="button-login">Zaloguj się</button></li>
+                    <li> <button id="button-login">Zaloguj się</button></li>
                 </ul>
             </div>
         </nav>
@@ -50,7 +50,12 @@
                         <label>Haslo</label>
                         <input id="haslo_t" type="password" name="haslo" placeholder="Wpisz Hasło" minlength="0" required>
                     </div>
-    
+                    
+                    <div class="data-2">
+                        <input type="checkbox" name="zapamietaj" id="zapamietaj" value="true">
+                        <label>Zapamietaj dane</label>
+                    </div>
+
                     <div class="submit-button">
                         <button type="button" id="zalog">Zaloguj sie</button>
                         <button type="button" id="rejestr">Zarejstruj sie</button>

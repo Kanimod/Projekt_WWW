@@ -19,122 +19,139 @@ const hideLogin = () => {
   document.getElementById("login-container").className = "hidden";
 }  
 
-let czyZalog = false;
-let ktoZalog = "";
+
+let ktoZalog = localStorage.getItem("ktoZalog");
+let czyZalog = localStorage.getItem("czyZalog");
+let zapisz = localStorage.getItem("zapsiz");
+
+console.log(czyZalog);
+console.log(zapisz);
+
+if(czyZalog == "true" || zapisz == "true"){
+  console.log(czyZalog);
+  document.getElementById("button-login").innerHTML = "Wyloguj sie";
+  document.getElementById('czas-log').className = 'shown';
+  document.getElementById("czas").innerHTML = ktoZalog;
+} else{
+  ktoZalog = null; 
+  czyZalog = null;
+  this.localStorage.setItem("ktoZalog", ktoZalog);
+  this.localStorage.setItem("czyZalog", czyZalog);
+}
+
 
 const logowanie_f = document.getElementById("logowanie");
+const zalogWylog = document.getElementById('button-login')
 
-if(logowanie_f){
-  if(czyZalog == false){
-    console.log(czyZalog);
-    const loginButt = document.getElementById('zalog');
-    const rejestrButt = document.getElementById('rejestr');
+console.log(czyZalog);
 
-    loginButt.addEventListener('click', async () => {
-    const loginWej = document.getElementById("login_t").value;
-    const hasloWej = document.getElementById("haslo_t").value;
+if(zalogWylog){
+  zalogWylog.addEventListener('click', async () => {
+    if(czyZalog == null){
+      showLogin();
+      const loginButt = document.getElementById('zalog');
+      const rejestrButt = document.getElementById('rejestr');
 
-    try {
-      const response = await fetch('http://localhost:3000/uzytkownicy');
-      const uzytkownicy = await response.json();
-
-      const dopasowanie = uzytkownicy.find(
-        uzyt => uzyt.login === loginWej && uzyt.haslo === hasloWej
-      );
-
-      if (dopasowanie) {
-        alert('Logowanie udane!');
-        czyZalog = true;
-        ktoZalog = loginWej;
-        document.getElementById('czas-log').className = 'shown';
-        hideLogin();
-        logowanie_f.reset();
-        console.log(czyZalog);
-        document.getElementById("button-login").innerHTML = "Wyloguj sie";
-      } else {
-        alert('Logowanie nieudane :(');
-        logowanie_f.reset();
-      }
-    } catch (error) {
-      console.error('Błąd logowania:', error);
-      logowanie_f.reset();
-    }
-  });
-    
-    rejestrButt.addEventListener('click', async () => {
-    const loginWej = document.getElementById("login_t").value;
-    const hasloWej = document.getElementById("haslo_t").value;
-    const kalendarz = new Date();
-
-    try {
-      const response = await fetch('http://localhost:3000/uzytkownicy');
-      const uzytkownicy = await response.json();
-
-      const dopasowanie = uzytkownicy.find(uzyt => uzyt.login === loginWej);
-
-      if (dopasowanie) {
-        alert('Taki użytkownik już istnieje :(');
-        logowanie_f.reset();
-      } else {
-        const dane = {
-          login: loginWej,
-          haslo: hasloWej,
-          czas: kalendarz
-        };
-
-        const postResponse = await fetch('http://localhost:3000/uzytkownicy', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(dane)
-        });
-
-        if (postResponse.ok) {
-          hideLogin();
-          alert('Utworzyłeś konto!');
-          czyZalog = true;
-          ktoZalog = loginWej;
-        } else {
-          console.error("Błąd serwera przy dodawaniu użytkownika.");
+      loginButt.addEventListener('click', async () => {
+        
+        const dane_log = new FormData(logowanie_f);
+        const dane_l = {
+          login: dane_log.get('login'),
+          haslo: dane_log.get('haslo'),
+          zapisz: dane_log.get('zapamietaj')
         }
-      }
-    } catch (error) {
-      console.error('Błąd rejestracji:', error);
-      logowanie_f.reset();
-    }
-  });
-} else{
-  const wylogBtn = document.getElementById('button-login');
-};
-}
 
-if(czyZalog){
-  const wylogBtn = document.getElementById('button-login');
+        try {
+          const response = await fetch('http://localhost:3000/uzytkownicy');
+          const uzytkownicy = await response.json();
 
-  wylogBtn.addEventListener('clikc', async () => {
-    console.log("wylogowanie");
-    czyZalog = false;
-  })
-}
+          const dopasowanie = uzytkownicy.find(
+            uzyt => uzyt.login === dane_l.login && uzyt.haslo === dane_l.haslo
+          );
 
+          if (dopasowanie) {
+            alert('Logowanie udane!');
+            czyZalog = "true";
+            ktoZalog = dane_l.login;
+            localStorage.setItem("czyZalog", czyZalog);
+            localStorage.setItem("ktoZalog", ktoZalog);
+            document.getElementById('czas-log').className = 'shown';
+            document.getElementById("czas").innerHTML = dane_l.login;
+            hideLogin();
+            logowanie_f.reset();
+            console.log(czyZalog);
+            document.getElementById("button-login").innerHTML = "Wyloguj sie";
+            if(dane_l.zapisz == "true"){
+              zapisz = "true"
+              localStorage.setItem("zapsiz", zapisz);
+            }
+          } else {
+            alert('Logowanie nieudane :(');
+            logowanie_f.reset();
+          }
+        } catch (error) {
+          console.error('Błąd logowania:', error);
+          logowanie_f.reset();
+        }
+      });
+      
+      rejestrButt.addEventListener('click', async () => {
+          const dane_log = new FormData(logowanie_f);
+          const dane_l = {
+          login: dane_log.get('login'),
+          haslo: dane_log.get('haslo'),
+          zapisz: dane_log.get('zapamietaj'),
+          }
 
-document.getElementById("czas").innerHTML = "aaaaa";
-/*const czas_zap = localStorage.getItem('zapis_czasu');
+        try {
+          const response = await fetch('http://localhost:3000/uzytkownicy');
+          const uzytkownicy = await response.json();
 
-const czasss = new Date();
+          const dopasowanie = uzytkownicy.find(uzyt => uzyt.login === dane_l.login);
 
-const dzien = czasss.toLocaleDateString('en-GB');
+          if (dopasowanie) {
+            alert('Taki użytkownik już istnieje :(');
+            logowanie_f.reset();
+          } else {
+            const postResponse = await fetch('http://localhost:3000/uzytkownicy', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(dane_l)
+            });
 
-window.addEventListener('beforeunload', () => {
-  const navType = performance.getEntriesByType("navigation")[0]?.type;
-  if (navType !== 'reload') {
-    localStorage.setItem('zapis_czasu', dzien);
+            if (postResponse.ok) {
+              hideLogin();
+              alert('Utworzyłeś konto!');
+              czyZalog = "true";
+              ktoZalog = dane_l.login;
+              localStorage.setItem("czyZalog", czyZalog);
+              localStorage.setItem("ktoZalog", ktoZalog);
+              document.getElementById('czas-log').className = 'shown';
+              document.getElementById("czas").innerHTML = dane_l.login;
+              document.getElementById("button-login").innerHTML = "Wyloguj sie";
+            } else {
+              console.error("Błąd serwera przy dodawaniu użytkownika.");
+            }
+          }
+        } catch (error) {
+          console.error('Błąd rejestracji:', error);
+          logowanie_f.reset();
+        }
+      });
+  } else{
+    alert("Zostałes wylogowany");
+    czyZalog = null;
+    ktoZalog = null;
+    localStorage.setItem("czyZalog", czyZalog);
+    localStorage.setItem("ktoZalog", ktoZalog);
+    document.getElementById('czas-log').className = 'hidden';
+    document.getElementById("button-login").innerHTML = "Zaloguj sie";
+    localStorage.clear();
+  };
   }
-});
-
-document.getElementById("czas").innerHTML = czas_zap;
-*/
+)}
 
 const toggleButton = document.getElementById('tryb');
 const cialo = document.getElementById('cialo');
@@ -165,6 +182,10 @@ toggleButton.addEventListener('click', () => {
         localStorage.setItem('them', 'jasno');
     }
 });
+
+
+
+
 
 function odapalWyszuk(){
   const zapyt = document.getElementById("wyszukiwanie").value.toLocaleLowerCase();
@@ -210,7 +231,7 @@ if(opiniLista){
     let licznik = 1;
     data.forEach(opinia => {
       const li = document.createElement('li');
-      li.textContent = `${licznik}. Jakość: ${opinia.jakosc}, Ulubiona Gra: ${opinia.ulub_gra}, Opinia: ${opinia.opinia}`;
+      li.textContent = `${licznik}. ${opinia.autor} - Jakość: ${opinia.jakosc}, Ulubiona Gra: ${opinia.ulub_gra}, Opinia: ${opinia.opinia}`;
       opiniLista.appendChild(li);
       licznik++;
     });
@@ -226,12 +247,24 @@ const formularz_f = document.getElementById('formularz_f');
 if (wyslijBtn && formularz_f) {
   wyslijBtn.addEventListener('click', async () => {
     const dane_f = new FormData(formularz_f);
-    const dane = {
+    let dane = {};
+    if(ktoZalog){
+      dane = {
+      autor: ktoZalog,
       jakosc: dane_f.get('jakosc'),
       ile_gier: dane_f.get('ile_gier'),
       ulub_gra: dane_f.get('ulub_gra'),
       opinia: dane_f.get('opinia')
     };
+    }else{
+      dane = {
+        autor: "Gość",
+        jakosc: dane_f.get('jakosc'),
+        ile_gier: dane_f.get('ile_gier'),
+        ulub_gra: dane_f.get('ulub_gra'),
+        opinia: dane_f.get('opinia')
+      };
+    }
 
     try {
       const response = await fetch('http://localhost:3000/opinie', {
@@ -254,3 +287,12 @@ if (wyslijBtn && formularz_f) {
   });
 }
 
+window.addEventListener('beforeunload', function () {
+    if(zapisz == null){
+      ktoZalog = null; 
+      czyZalog = null;
+      localStorage.setItem("ktoZalog", ktoZalog);
+      localStorage.setItem("czyZalog", czyZalog);
+      console.log('pameic wyczyszczona');
+    }
+});

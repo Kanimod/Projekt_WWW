@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <title>Granko</title>
         <link rel="stylesheet" type="text/css" href="../styles.css">
-        <link rel="icon" type="image/x-icon" href="/media/favicon-2.ico">
+        <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
     </head>
 
     <body id="cialo">
@@ -13,8 +13,8 @@
             <div class="logo"><a href="/pages/index.html"><img src="/media/logo.png" alt="logo"></a></div>
             <h1>Witamy w Świecie Gier!!</h1>
             <div id="czas-log" class="hidden">
-                <h3>Twoja ostatnia wizyta: </h3>
-                <p id="czas"></p>
+                <h3>Dobrze cie widziec - </h3>
+                <h3 id="czas"></h3>
             </div>
         </header>
 
@@ -29,7 +29,7 @@
                 <ul class="n_prawa">
                     <li><input id="wyszukiwanie" type="text" name="wszyuk" placeholder="szukaj..."></li>
                     <li><button><img id="tryb" src="/media/tryb.png"></button></li>
-                    <li> <button onclick="showLogin()" id="button-login">Zaloguj się</button></li>
+                    <li> <button id="button-login">Zaloguj się</button></li>
                 </ul>
             </div>
         </nav>
@@ -53,12 +53,16 @@
                         <label>Haslo</label>
                         <input id="haslo_t" type="password" name="haslo" placeholder="Wpisz Hasło" minlength="0" required>
                     </div>
-    
+                    
+                    <div class="data-2">
+                        <input type="checkbox" name="zapamietaj" id="zapamietaj" value="true">
+                        <label>Zapamietaj dane</label>
+                    </div>
+
                     <div class="submit-button">
                         <button type="button" id="zalog">Zaloguj sie</button>
                         <button type="button" id="rejestr">Zarejstruj sie</button>
                     </div>
-    
                 </form>
             </div>
         </div>
@@ -73,7 +77,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="main">
@@ -86,7 +89,7 @@
                             <source src="/media/plinko_video.mp4" type="video/mp4">
                         </video>    
                     </div>
-                    <button><a href="/gierka1_plinko/plinko.html">Zagraj</a></button>
+                    <button><a href="/gierka1_plinko/plinko.html" id="gra_1">Zagraj</a></button>
                 </div>
 
                 <div class="gra">
@@ -97,7 +100,7 @@
                             <source src="/media/conway.mp4" type="video/mp4">
                         </video> 
                     </div>
-                    <button><a href="/gierka2_conway/conway.html">Zagraj</a></button>
+                    <button id="gra_2"><a href="/gierka2_conway/conway.html">Zagraj</a></button>
                 </div>
 
                 <div class="gra">
@@ -108,7 +111,7 @@
                             <source src="/media/conway.mp4" type="video/mp4">
                         </video> 
                     </div>
-                    <button><a href="/gierka3_rpg/Gierka_b2.html">Zagraj</a></button>
+                    <button id="gra_3"><a href="/gierka3_rpg/Gierka_b2.html">Zagraj</a></button>
                 </div>
             </div>
         </div>
