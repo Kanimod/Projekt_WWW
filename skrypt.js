@@ -47,6 +47,7 @@ console.log(czyZalog);
 
 if(zalogWylog){
   zalogWylog.addEventListener('click', async () => {
+    console.log("klilniety");
     if(czyZalog == null){
       showLogin();
       const loginButt = document.getElementById('zalog');

@@ -341,7 +341,7 @@ form .submit-button button {
     color: aliceblue;
 }
   
-.button-login{
+#button-login{
     margin-right: 30px;
     background: brown;
     border-style: solid ;
@@ -354,7 +354,7 @@ form .submit-button button {
    color: white;
 }
 
-.button-login:hover{
+#button-login:hover{
     background-color: red;
     border-color: tomato;
 }
