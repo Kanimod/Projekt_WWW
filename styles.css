@@ -114,6 +114,7 @@ header img {
 }
 
 #tryb{
+    cursor: pointer;
     width: 50px;
     height: auto;
 }
@@ -140,26 +141,31 @@ header img {
 }
 
 .obrazek_gra1, .obrazek_gra2, .obrazek_gra3 {
-    position: relative;
-}
-
-.obrazek_gra1 img,.obrazek_gra2 img,.obrazek_gra3 img,.podglad{
     border: 10px solid black;
-    border-radius: 10px;
-    width: 100%;
-    height: auto;
+    border-radius: 10px;    
+    position: relative;
+    width: 90%;
     margin-bottom: 5%;
 }
 
-.podglad{
+.obrazek_gra1 img, .obrazek_gra2 img, .obrazek_gra3 img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.podglad {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%; 
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
     z-index: 1;
 }
+
 
 .obrazek_gra1:hover .podglad,.obrazek_gra2:hover .podglad,.obrazek_gra3:hover .podglad{
     opacity: 1;
@@ -174,7 +180,7 @@ header img {
 }
 
 .gra button:hover{
-    transition: 1.5s;
+    transition: 1s;
     background-color: lightgreen;
 }
 
@@ -240,11 +246,12 @@ header img {
   
 .login,.popup-nieznaleziono {
     border-radius: 10px;
+    border: 10px solid black;
     position: fixed;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: papayawhip;
+    background: #9F9F92;
     width: 410px;
     padding: 30px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
@@ -282,7 +289,7 @@ form .data input {
 }
   
 form .data input:focus {
-    border-color: papayawhip;
+    border-color: #9F9F92;
     border-bottom-width: 2px;
 }
   
@@ -332,8 +339,22 @@ form .submit-button button {
     color: aliceblue;
 }
   
-#button-login{
+.button-login{
     margin-right: 30px;
+    background: brown;
+    border-style: solid ;
+    border-width: 2px;
+    border-color: red;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 500;
+   font-size: large;
+   color: white;
+}
+
+.button-login:hover{
+    background-color: red;
+    border-color: tomato;
 }
 
 .popup-nieznaleziono{
@@ -343,7 +364,7 @@ form .submit-button button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: papayawhip;
+    background: #9F9F92;
     width: 410px;
     padding: 30px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
@@ -356,7 +377,7 @@ form .submit-button button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: papayawhip;
+    background: #9F9F92;
     width: 410px;
     padding: 30px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
@@ -380,6 +401,23 @@ form .submit-button button {
     display: flex;
     justify-content: flex-end;
     flex-flow: row;
+}
+
+.guzikkot button{
+    cursor: pointer;
+    background-color: brown;
+    font-style: bold;
+    font-size: medium;
+    font-weight: 500;
+    color: whitesmoke;
+    width: 20%;
+    border-radius: 10px;
+    border-color: red;
+}
+
+.guzikkot button:hover{
+    background-color: red;
+    border-color: tomato;
 }
 
 .popup-nieznaleziono img{
