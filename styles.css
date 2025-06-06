@@ -46,6 +46,7 @@ header img {
 }
 
 .navbar {
+    z-index: 999999;
     background-color: #423D42;
     position: sticky;
     top: 0;
@@ -124,10 +125,9 @@ header img {
     background-color: #725A61;
     text-align: center;
     border: 10px solid black;
-    border-radius: 10px;    
 }
 
-.gra {
+.gra{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,12 +139,30 @@ header img {
     width: 90%;
 }
 
-.obrazek_gra img{
+.obrazek_gra1, .obrazek_gra2, .obrazek_gra3 {
+    position: relative;
+}
+
+.obrazek_gra1 img,.obrazek_gra2 img,.obrazek_gra3 img,.podglad{
     border: 10px solid black;
     border-radius: 10px;
     width: 100%;
     height: auto;
     margin-bottom: 5%;
+}
+
+.podglad{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.obrazek_gra1:hover .podglad,.obrazek_gra2:hover .podglad,.obrazek_gra3:hover .podglad{
+    opacity: 1;
 }
 
 .gra button{

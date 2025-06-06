@@ -1,3 +1,16 @@
+document.querySelectorAll('.podglad').forEach(video => {
+  const container = video.parentElement;
+
+  container.addEventListener('mouseenter', () => {
+    video.play();
+  });
+
+  container.addEventListener('mouseleave', () => {
+    video.pause();
+    video.currentTime = 0;
+  });
+});
+
 const showLogin = () => {
   document.getElementById("login-container").className = "shown";
 }
